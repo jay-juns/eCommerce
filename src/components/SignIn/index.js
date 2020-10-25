@@ -50,7 +50,7 @@ class SignIn extends Component {
     const { email, password } = this.state;
 
     const configAuthWrapper = {
-      headline: '로그인'
+      headline: '로그 인'
     };
 
     return (
