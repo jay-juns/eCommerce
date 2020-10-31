@@ -113,7 +113,7 @@ const Signup = props => {
           />
 
           <Button type="submit">
-            Register
+            회원가입
           </Button>
 
         </form>

@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { fetchProductsStart } from '../../redux/Products/products.actions';
 import Product from './Product';
 import FormSelect from './../forms/FormSelect';
+import LoadMore from './../LoadMore';
 import './styles.scss';
 
 const mapState = ({ productsData }) => ({
@@ -15,6 +16,8 @@ const ProductsResults = ({}) => {
   const history = useHistory();
   const { filterType } = useParams();
   const { products } = useSelector(mapState);
+
+  const { data, queryDoc, isLastPage } = products;
  
   useEffect(() => {
     dispatch(
@@ -27,9 +30,9 @@ const ProductsResults = ({}) => {
     history.push(`/search/${nextFilter}`);
   };
 
-  if (!Array.isArray(products)) return null;
+  if (!Array.isArray(data)) return null;
 
-  if (products.length < 1) {
+  if (data.length < 1) {
     return (
       <div className="products">
         <p>
@@ -54,6 +57,20 @@ const ProductsResults = ({}) => {
     handleChange: handleFiter
   }; 
 
+  const handleLoadmore = () => {
+    dispatch(
+      fetchProductsStart({ 
+        filterType, 
+        startAfterDoc: queryDoc,
+        persistProducts: data 
+      })
+    )
+  };
+  
+  const configLoadMore = {
+    onLoadMoreEvt: handleLoadmore,
+  };
+
   return (
     <div className="products">
       
@@ -61,10 +78,10 @@ const ProductsResults = ({}) => {
         상품 목록
       </h1>
 
-      <FormSelect {...configFiters}/>
+      <FormSelect {...configFiters} />
 
       <div className="productResults">
-        {products.map((product, pos) => {
+        {data.map((product, pos) => {
           const { productThumbnail, productName, productPrice } = product;
           if(!productThumbnail || !productName || 
             typeof productPrice === 'undefined') return null;
@@ -80,6 +97,11 @@ const ProductsResults = ({}) => {
           );
         })}
       </div>
+
+      { !isLastPage && (
+        <LoadMore {...configLoadMore}/>  
+      )}
+
     </div>
   );
 };

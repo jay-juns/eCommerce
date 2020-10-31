@@ -48,12 +48,12 @@ const Header = props => {
             <ul>
               <li>
                 <Link to="/dashboard">
-                  My Account
+                  내 정보
                 </Link>
               </li>
               <li>
                 <span onClick={() => signOut()}>
-                  LogOut
+                  로그아웃
                 </span>
               </li>
             </ul>
@@ -63,12 +63,12 @@ const Header = props => {
             <ul>
               <li>
                 <Link to="/registration">
-                  Register
+                  회원가입
                 </Link>
               </li>
               <li>
                 <Link to="/login">
-                  Login
+                  로그인
                 </Link>
               </li>
             </ul>

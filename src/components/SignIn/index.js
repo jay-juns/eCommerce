@@ -68,21 +68,21 @@ const SignIn = props => {
           />
 
           <Button type="submit">
-            Login
+            로그인
           </Button>
 
 
           <div className="socialSignin">
             <div className="row">
               <Button onClick={handleGoogleSignIn}>
-                Sign in with Google
+                구글계정으로 로그인
               </Button>
             </div>
           </div>
 
           <div className="links">
             <Link to="/recovery">
-              Reset Password
+              패스워드 초기화
             </Link>
           </div>
 
