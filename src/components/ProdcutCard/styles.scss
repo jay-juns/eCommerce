@@ -22,6 +22,10 @@
 
       ul li {
         margin: 0 auto 1rem;
+        
+        .disc {
+          word-break: break-all;
+        }
 
         h1 {
           margin: 0;

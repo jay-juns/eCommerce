@@ -2,17 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from  'react-redux';
 import { signOutUserStart } from './../../redux/User/user.actions';
+import { selectCartItemsCount } from './../../redux/Cart/cart.selectors';
 import './styles.scss';
 
 import Logo from './../../assets/logo.png';
 
-const mapState = ({ user }) => ({
-  currentUser: user.currentUser
+const mapState = (state) => ({
+  currentUser: state.user.currentUser,
+  totalNumCartItems: selectCartItemsCount(state)
 });
 
 const Header = props => {
   const dispatch = useDispatch(); 
-  const { currentUser } = useSelector(mapState);
+  const { currentUser, totalNumCartItems } = useSelector(mapState);
 
   const signOut = () => {
     dispatch(signOutUserStart());
@@ -43,36 +45,46 @@ const Header = props => {
         </nav>
         
         <div className="callToActions">
-          
-          {currentUser && (
-            <ul>
+
+          <ul>
+            <li>
+              <Link>
+                장바구니 ({totalNumCartItems})
+              </Link>
+            </li>
+
+            {currentUser && [
               <li>
                 <Link to="/dashboard">
                   내 정보
                 </Link>
-              </li>
+              </li>,
               <li>
                 <span onClick={() => signOut()}>
                   로그아웃
                 </span>
               </li>
-            </ul>
-          )}
+            ]}
+
+          {!currentUser && [
+            <li>
+              <Link to="/registration">
+                회원가입
+              </Link>
+            </li>,
+            <li>
+              <Link to="/login">
+                로그인
+              </Link>
+            </li>
+            
+          ]}
+
+          </ul>
+          
+          
       
-          {!currentUser && (
-            <ul>
-              <li>
-                <Link to="/registration">
-                  회원가입
-                </Link>
-              </li>
-              <li>
-                <Link to="/login">
-                  로그인
-                </Link>
-              </li>
-            </ul>
-          )}
+          
 
         </div>
       </div>
