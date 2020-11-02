@@ -48,7 +48,7 @@ const Header = props => {
 
           <ul>
             <li>
-              <Link>
+              <Link to="/cart">
                 장바구니 ({totalNumCartItems})
               </Link>
             </li>
