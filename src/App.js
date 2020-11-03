@@ -26,6 +26,8 @@ import Dashboard from './pages/Dashboard';
 import Admin from './pages/Admin';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
+
+// default css
 import './default.scss';
 
 const App = props => {
