@@ -1,2 +1,3 @@
-# git rm --cached 파일명
+# connect js 는 미들웨어 방식 예제
 config.js
+connect.js 

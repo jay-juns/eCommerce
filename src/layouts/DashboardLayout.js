@@ -23,12 +23,12 @@ const DashBoardLayout = props => {
             <ul>
               <li>
                 <Link to="/dashboard">
-                  Home
+                  홈
                 </Link>
               </li>
               <li>
                 <span className="signOut" onClick={() => signOut()}>
-                  Sign Out
+                  로그아웃
                 </span>
               </li>
             </ul>
