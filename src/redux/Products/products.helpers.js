@@ -48,7 +48,7 @@ export const handleFetchProducts = ({ filterType, startAfterDoc, persistProducts
       .catch(err => {
         reject(err);
       })
-  })
+  });
 }
 
 export const handleDeleteProduct = documentID => {
@@ -82,5 +82,5 @@ export const handleFetchProduct = productID => {
       .catch(err => {
         reject(err);
       })
-  })
+  });
 }
