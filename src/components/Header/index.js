@@ -47,11 +47,6 @@ const Header = props => {
         <div className="callToActions">
 
           <ul>
-            <li>
-              <Link to="/cart">
-                장바구니 ({totalNumCartItems})
-              </Link>
-            </li>
 
             {currentUser && [
               <li>
@@ -63,6 +58,11 @@ const Header = props => {
                 <span onClick={() => signOut()}>
                   로그아웃
                 </span>
+              </li>,
+              <li>
+                <Link to="/cart">
+                  장바구니 ({totalNumCartItems})
+                </Link>
               </li>
             ]}
 
