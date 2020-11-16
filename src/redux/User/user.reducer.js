@@ -1,4 +1,3 @@
-import { useRouteMatch } from 'react-router-dom';
 import userTypes from './user.types';
 
 const INITIAL_STATE = {

@@ -5,8 +5,8 @@ import { signUpUserStart } from './../../redux/User/user.actions';
 import './styles.scss';
 
 import AuthWrapper from './../AuthWrapper';
-import FormInput from './../forms/FormInput';
-import Button from './../forms/Button';
+import FormInput from '../Forms/FormInput';
+import Button from '../Forms/Button';
 
 const mapState = ({ user }) => ({
   currentUser: user.currentUser,

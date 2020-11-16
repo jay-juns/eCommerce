@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import Button from './../../forms/Button';
+import Button from './../../Forms/Button';
 import { useDispatch } from 'react-redux';
 import { addProduct } from './../../../redux/Cart/cart.actions';
 

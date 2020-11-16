@@ -73,8 +73,7 @@ const App = props => {
               <Registration />
             </MainLayout>
           )} />
-          <Route path="/login" 
-          render={() =>  (
+          <Route path="/login" render={() =>  (
             <MainLayout>
               <Login />
             </MainLayout>
